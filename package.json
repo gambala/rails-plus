@@ -1,0 +1,40 @@
+{
+  "name": "rails-plus",
+  "version": "2.0.0",
+  "description": "Cozy helpers for Ruby on Rails",
+  "main": "es6/index.js",
+  "style": "app/assets/stylesheets/rails-plus.scss",
+  "sass": "app/assets/stylesheets/rails-plus.scss",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/gambala/rails-plus"
+  },
+  "keywords": [
+    "rails-plus",
+    "sass",
+    "css"
+  ],
+  "contributors": [
+    "Vitaliy Emeliyantsev"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gambala/rails-plus/issues"
+  },
+  "dependencies": {
+    "blueimp-gallery": "^2.31.0",
+    "element-closest": "^2.0.2",
+    "fontfaceobserver": "^2.0.13",
+    "jquery": "^3.3.1",
+    "normalize.css": "^8.0.0",
+    "remodal": "^1.1.1",
+    "smooth-scroll": "cferdinandi/smooth-scroll",
+    "what-input": "^4.1.1",
+    "whatwg-fetch": "^2.0.3"
+  },
+  "devDependencies": {
+    "node-sass": "~3.7.0",
+    "mincer": "~1.4.0",
+    "ejs": "~2.5.5"
+  }
+}

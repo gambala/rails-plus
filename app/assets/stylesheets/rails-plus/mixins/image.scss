@@ -1,0 +1,11 @@
+@mixin image($filename,
+             $width,
+             $height,
+             $format: '.png',
+             $options: 50% 50% no-repeat,
+             $size: 100%) {
+  background: image_url($filename + $format) $options;
+  background-size: $size;
+  height: $height;
+  width: $width;
+}

@@ -1,0 +1,9 @@
+ujs.closeBsModals();
+ujs.closeRemodals();
+
+if ($('#<%= params[:block] || dashed(params[:partial]) %>').length) {
+  <%= render 'xhr_flashes' %>
+  ujs.replace('#<%= params[:block] || dashed(params[:partial]) %>', '<%= j render(params[:partial]) %>');
+} else {
+  ujs.visit('<%= url %>');
+}

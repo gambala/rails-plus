@@ -1,0 +1,12 @@
+@mixin retina-bg($filename, $format: '.png',
+                            $options: 50% 50% no-repeat,
+                            $retina-options: $options,
+                            $size: null) {
+  background: image_url($filename + $format) $options;
+  background-size: $size;
+
+  @media only screen and (min-resolution: 1.3dppx) {
+    background: image_url($filename + '@2x' + $format) $retina-options;
+    background-size: $size;
+  }
+}

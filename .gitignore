@@ -1,0 +1,13 @@
+*.gem
+*.gemfile.lock
+.DS_Store
+.rbenv-version
+.rvmrc
+Gemfile.lock
+
+/.bundle
+/.sass-cache
+/node_modules
+/tmp
+/vendor/bundle
+/vendor/cache
