@@ -1,6 +1,6 @@
 {
   "name": "rails-plus",
-  "version": "2.0.0",
+  "version": "0.1.0",
   "description": "Cozy helpers for Ruby on Rails",
   "main": "es6/index.js",
   "style": "app/assets/stylesheets/rails-plus.scss",
