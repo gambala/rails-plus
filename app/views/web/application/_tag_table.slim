@@ -1,0 +1,29 @@
+.table-wrapper
+  table.table-block
+    thead
+      tr
+        - columns.each do |column|
+          - column_title = column_titles[column]
+
+          th
+            - if column.present?
+              - if q.present?
+                - if column_title
+                  = sort_link q, column, column_title, class: 'link'
+                - else
+                  = sort_link q, column, class: 'link'
+              - else
+                = column_title.presence || collection.model.human_attribute_name(column)
+    tbody
+      - collection.each do |resource|
+        tr
+          - columns.each do |column|
+            td
+              - case values[column]
+              - when Proc
+                - values[column].call(resource)
+              - when :checkbox
+                .checkbox-group
+                  = check_box_tag 'batch_id[]', resource.id, false, class: 'checkbox-group__input'
+              - else
+                = resource.public_send(column)
