@@ -1,4 +1,4 @@
-module TagHelper
+module CustomTagHelper
   # Functions
 
   def classnames(classes)
