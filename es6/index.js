@@ -1,4 +1,5 @@
 import BlueimpGallery      from './modules/BlueimpGallery';
+import BlueimpImages       from './modules/BlueimpImages';
 import Entity              from './modules/ThreeJs/Entity';
 import FlashItems          from './modules/FlashItems';
 import Flips               from './modules/Flips';
@@ -11,6 +12,7 @@ import WebFontLoader       from './modules/WebFontLoader';
 
 export {
   BlueimpGallery,
+  BlueimpImages,
   Entity,
   FlashItems,
   Flips,
