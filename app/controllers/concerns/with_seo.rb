@@ -3,6 +3,7 @@ module WithSeo
 
   included do
     class_attribute :attr_description,
+                    :attr_h1,
                     :attr_keywords,
                     :attr_modified_time,
                     :attr_og_author,
@@ -13,6 +14,7 @@ module WithSeo
                     :attr_site_image,
                     :attr_title
     helper_method :description,
+                  :h1,
                   :keywords,
                   :modified_time,
                   :og_author,
@@ -26,6 +28,11 @@ module WithSeo
     def description(value = nil)
       return attr_description if value.blank?
       self.attr_description = value.to_s
+    end
+
+    def h1(value = nil)
+      return attr_h1 || title if value.blank?
+      self.attr_h1 = value.to_s
     end
 
     def keywords(value = nil)
