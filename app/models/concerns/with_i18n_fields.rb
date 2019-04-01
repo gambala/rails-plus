@@ -6,38 +6,37 @@ module WithI18nFields
   include I18nHelper
 
   included do
-    after_commit :create_translations, on: :create
+    has_many :i18n_translations, as: :record, dependent: :nullify
 
-    scope :translated, (lambda do |locale = I18n.locale|
+    scope :order_by_i18n, ->(field, direction = :asc, locale: I18n.locale) {
+      joins(:i18n_translations).where(i18n_translations: { locale: locale, field: field })
+                               .order("i18n_translations.value #{direction}")
+    }
+
+    scope :translated, ->(locale = I18n.locale) {
       ids = select { |record| record.translated?(locale) }.map(&:id)
       where(id: ids)
-    end)
+    }
+
+    after_commit :create_translations, on: :create
+
+    delegate :i18n_fields,      to: :class
+    delegate :i18n_record_type, to: :class
+    delegate :i18n_type,        to: :class
+    delegate :i18n_types,       to: :class
+
+    # Callbacks
 
     def create_translations
       I18nLanguage.all.pluck(:locale).each do |locale|
         i18n_fields.each do |field|
-          I18nTranslation.where(locale: locale, key: i18n_key(field)).first_or_create!
+          I18nTranslation.where(record_type: i18n_record_type, record_id: id, field: field,
+                                locale: locale).first_or_create!
         end
       end
     end
 
-    def i18n_fields
-      self.class.i18n_fields
-    end
-
-    def i18n_key(field = nil)
-      result = "#{self.class.i18n_key_prefix}.id_#{id}"
-      result += ".#{field}" if field.present?
-      result
-    end
-
-    def i18n_type(field)
-      self.class.i18n_type(field)
-    end
-
-    def i18n_types
-      self.class.i18n_types
-    end
+    # Virtual attributes
 
     def translated?(locale = I18n.locale)
       i18n_fields.each { |field| return false if public_send("i18n_#{field}", locale).blank? }
@@ -49,7 +48,8 @@ module WithI18nFields
 
       value.each do |locale, fields|
         fields.each do |field, translation|
-          I18nTranslation.find_by(locale: locale, key: i18n_key(field)).update(value: translation)
+          I18nTranslation.find_by(record_type: i18n_record_type, record_id: id, field: field,
+                                  locale: locale).update(value: translation)
         end
       end
     end
@@ -57,7 +57,14 @@ module WithI18nFields
 
   class_methods do
     def i18n_fields(*args)
-      return @i18n_fields if args.empty?
+      if args.empty?
+        if superclass.respond_to?(:i18n_fields)
+          return superclass.i18n_fields
+        else
+          return @i18n_fields
+        end
+      end
+
       options = args.extract_options!
       @i18n_fields = [] if @i18n_fields.blank?
       @i18n_types = {} if @i18n_types.blank?
@@ -68,13 +75,36 @@ module WithI18nFields
         @i18n_types[field.to_sym] = as
 
         define_method("i18n_#{field}") do |locale = nil|
-          i18n_t i18n_key(field), locale: locale, record: self, field: field, as: as
+          i18n_t locale: locale, record: self, field: field, as: as
+        end
+
+        I18nLanguage.all.pluck(:locale).each do |locale|
+          define_method("i18n_#{field}_#{locale}") do
+            send("i18n_#{field}", locale)
+          end
+
+          define_method("i18n_#{field}_#{locale}=") do |value|
+            I18nTranslation.find_by(record_type: i18n_record_type, record_id: id, field: field,
+                                    locale: locale).update(value: value)
+          end
         end
       end
     end
 
-    def i18n_key_prefix
-      "activerecord.values.#{table_name.singularize.to_sym}"
+    def i18n_permitted_attributes
+      result = []
+
+      I18nLanguage.all.pluck(:locale).each do |locale|
+        i18n_fields.each do |field|
+          result.push("i18n_#{field}_#{locale}")
+        end
+      end
+
+      result
+    end
+
+    def i18n_record_type
+      table_name.classify
     end
 
     def i18n_type(field)
