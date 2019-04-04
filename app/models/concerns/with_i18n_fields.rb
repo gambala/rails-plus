@@ -78,6 +78,8 @@ module WithI18nFields
           i18n_t locale: locale, record: self, field: field, as: as
         end
 
+        next unless I18nLanguage.table_exists?
+
         I18nLanguage.all.pluck(:locale).each do |locale|
           define_method("i18n_#{field}_#{locale}") do
             send("i18n_#{field}", locale)
