@@ -1,0 +1,7 @@
+=from($size)
+  @media (min-width: $size)
+    @content
+
+=to($size)
+  @media (max-width: $size - 1px)
+    @content

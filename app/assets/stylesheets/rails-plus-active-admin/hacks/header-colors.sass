@@ -1,4 +1,4 @@
-@import breakpoint
+@import rails-plus/mixins/media
 
 #header
   background: var(--site-header-background)
@@ -14,7 +14,7 @@
       border-radius: 3px
       padding: 3px 6px
 
-      +breakpoint(max-width 767px)
+      +to(768px)
         font-size: 10px
         padding: 2px 4px
 
@@ -27,7 +27,7 @@
       max-width: 100%
       width: 100%
 
-      +breakpoint(max-width 767px)
+      +to(768px)
         margin-top: -2px
 
       li a:hover
@@ -58,5 +58,5 @@
     &.has_nested.current:hover > a
       background-color: #fff
 
-    +breakpoint(max-width 767px)
+    +to(768px)
       margin: 2px

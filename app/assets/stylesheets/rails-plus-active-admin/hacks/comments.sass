@@ -1,4 +1,4 @@
-@import breakpoint
+@import rails-plus/mixins/media
 
 .comments
   .active_admin_comment
@@ -10,7 +10,7 @@
       margin-bottom: 3px
       width: auto
 
-      +breakpoint(768px)
+      +from(768px)
         display: flex
         flex-flow: row wrap
 
@@ -19,7 +19,7 @@
         margin-right: 10px
         order: 1
 
-        +breakpoint(768px)
+        +from(768px)
           width: 150px
 
       .active_admin_comment_author,
@@ -32,17 +32,17 @@
         order: 3
 
     .active_admin_comment_body
-      +breakpoint(max-width 767px)
+      +to(768px)
         margin-left: 0
 
-      +breakpoint(768px)
+      +from(768px)
         margin-left: (150px + 10px)
 
   .pagination_information
     float: none
     margin-bottom: 18px
 
-    +breakpoint(768px)
+    +from(768px)
       margin-left: (150px + 10px)
 
   form.active_admin_comment
@@ -53,8 +53,8 @@
       margin-left: 0
       width: 100%
 
-    +breakpoint(max-width 767px)
+    +to(768px)
       margin-left: 0
 
-    +breakpoint(768px)
+    +from(768px)
       margin-left: (150px + 10px)

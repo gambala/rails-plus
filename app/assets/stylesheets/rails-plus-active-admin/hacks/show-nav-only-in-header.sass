@@ -1,9 +1,9 @@
-@import breakpoint
+@import rails-plus/mixins/media
 
 #header
   padding: 0 10px
 
-  +breakpoint(768px)
+  +from(768px)
     padding: 0 30px
 
   .navigation
@@ -22,7 +22,7 @@
       margin-left: -10px
       margin-right: -10px
 
-      +breakpoint(max-width 767px)
+      +to(768px)
         padding: 3px 4px
 
       & > li ul

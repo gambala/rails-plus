@@ -1,4 +1,4 @@
-@import breakpoint
+@import rails-plus/mixins/media
 
 form.filter_form .filter_form_field
   display: flex
@@ -10,40 +10,40 @@ form.filter_form .filter_form_field
   .label
     margin: 0 5px
 
-    +breakpoint(max-width 530px)
+    +to(530px)
       width: 100%
 
-    +breakpoint(768px)
+    +from(768px)
       width: 100%
 
   &.select_and_search select
     margin: 3px 5px
     width: 150px
 
-    +breakpoint(max-width 530px)
+    +to(530px)
       width: 40%
 
-    +breakpoint(768px)
+    +from(768px)
       width: 40%
 
   &.select_and_search .select2-container
     margin: 3px 5px
     width: 150px !important
 
-    +breakpoint(max-width 530px)
+    +to(530px)
       width: 40% !important
 
-    +breakpoint(768px)
+    +from(768px)
       width: 40% !important
 
   &.filter_select .select2-container
     margin: 3px 5px
     width: 150px !important
 
-    +breakpoint(max-width 530px)
+    +to(530px)
       width: 100% !important
 
-    +breakpoint(768px)
+    +from(768px)
       width: 100% !important
 
   &.select_and_search input[type="text"],
@@ -54,10 +54,10 @@ form.filter_form .filter_form_field
     margin: 3px 5px
     width: 200px
 
-    +breakpoint(max-width 530px)
+    +to(530px)
       width: 40%
 
-    +breakpoint(768px)
+    +from(768px)
       width: 40%
 
 form .buttons,

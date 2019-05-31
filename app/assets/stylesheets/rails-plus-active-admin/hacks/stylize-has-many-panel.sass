@@ -1,9 +1,9 @@
-@import breakpoint
+@import rails-plus/mixins/media
 
 form fieldset ol > li.has_many_container
   display: block
 
-  +breakpoint(max-width 767px)
+  +to(768px)
     padding: 6px 0
 
   .has_many_fields
@@ -12,7 +12,7 @@ form fieldset ol > li.has_many_container
     box-shadow: none
     margin-bottom: 12px
 
-    +breakpoint(max-width 767px)
+    +to(768px)
       ol > li
         padding: 6px 10px
 

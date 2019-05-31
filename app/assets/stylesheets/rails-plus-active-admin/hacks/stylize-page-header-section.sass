@@ -1,4 +1,4 @@
-@import breakpoint
+@import rails-plus/mixins/media
 
 #title_bar
   background: none
@@ -11,7 +11,7 @@
   #titlebar_right
     vertical-align: bottom
 
-  +breakpoint(max-width 767px)
+  +to(768px)
     padding: 10px 10px
 
     #titlebar_left,
