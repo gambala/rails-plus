@@ -5,9 +5,9 @@ class RichFormBuilder < ActionView::Helpers::FormBuilder
     @template.content_tag :div, message(field_name), class: class_def
   end
 
-  def error_message_without(excluded_errors, options = {})
+  def error_messages(options = {})
     errors = @object.errors.dup
-    excluded_errors.each { |error| errors.delete(error) }
+    options[:without].each { |error| errors.delete(error) }
     return unless errors.any?
     class_def = options[:class] || 'field-paragraph field-paragraph_danger'
     @template.content_tag :div, "Также: #{errors.full_messages.join('; ')}", class: class_def
@@ -26,9 +26,9 @@ class RichFormBuilder < ActionView::Helpers::FormBuilder
     @template.content_tag :div, message, class: class_def
   end
 
-  # Deprecated (Use error_message_without 01.06.2019)
-  def rest_errors_message(*args)
-    error_message_without(*args)
+  # Deprecated (Use error_messages 01.06.2019)
+  def rest_errors_message(excluded_errors, options = {})
+    error_messages(options.merge(without: excluded_errors))
   end
 
   private
