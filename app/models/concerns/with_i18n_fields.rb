@@ -39,6 +39,7 @@ module WithI18nFields
     # Virtual attributes
 
     def translated?(locale = I18n.locale)
+      return false if i18n_fields.blank?
       i18n_fields.each { |field| return false if public_send("i18n_#{field}", locale).blank? }
       true
     end
