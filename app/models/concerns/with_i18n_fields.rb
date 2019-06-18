@@ -58,16 +58,14 @@ module WithI18nFields
 
   class_methods do
     def i18n_fields(*args)
+      @i18n_fields = [] if @i18n_fields.blank?
+
       if args.empty?
-        if superclass.respond_to?(:i18n_fields)
-          return superclass.i18n_fields
-        else
-          return @i18n_fields
-        end
+        @i18n_fields += superclass.i18n_fields if superclass.respond_to?(:i18n_fields)
+        return @i18n_fields
       end
 
       options = args.extract_options!
-      @i18n_fields = [] if @i18n_fields.blank?
       @i18n_types = {} if @i18n_types.blank?
       @i18n_fields += args
 
