@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-# Deprecated (use WithVisitor 30.06.2019)
-module Visitor
+module WithVisitor
   extend ActiveSupport::Concern
 
   included do
