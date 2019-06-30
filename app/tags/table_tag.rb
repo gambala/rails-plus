@@ -1,9 +1,10 @@
 class TableTag
-  attr_reader :collection, :view_context, :columns, :values, :column_titles
+  attr_reader :view_context
+  attr_reader :collection, :columns, :values, :column_titles
 
   def initialize(view_context, collection)
-    @collection = collection
     @view_context = view_context
+    @collection = collection
     @columns = []
     @values = {}
     @column_titles = {}
