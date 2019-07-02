@@ -1,6 +1,6 @@
 module RoutesHelper
   # rubocop:disable Lint/UnusedMethodArgument
-  def rich_resources(*resources, &block)
+  def resources_rich(*resources, &block)
     options = resources.dup.extract_options!
 
     resources(*resources) do
@@ -18,12 +18,22 @@ module RoutesHelper
     end
   end
 
-  def scoped_rich_resources(*resources, &block)
+  def scoped_resources_rich(*resources, &block)
     module_name = resources[0]
 
     scope module: module_name do
-      rich_resources(*resources, &block)
+      resources_rich(*resources, &block)
     end
+  end
+
+  # Deprecated aliases
+
+  def scoped_rich_resources(*resources, &block)
+    scoped_resources_rich(*resources, &block)
+  end
+
+  def rich_resources(*resources, &block)
+    resources_rich(*resources, &block)
   end
 
   private
