@@ -14,7 +14,6 @@ class RichFormBuilder < ActionView::Helpers::FormBuilder
   end
 
   def label(method, text = nil, options = {}, &block)
-    options[:for] ||= "#{@object_name}-#{method.to_s.tr('_', '-')}-input"
     options[:class] ||= 'label'
     super(method, text, options, &block)
   end
