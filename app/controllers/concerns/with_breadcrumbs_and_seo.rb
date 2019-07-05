@@ -14,9 +14,9 @@ module WithBreadcrumbsAndSeo
       t('site.title')
     end
 
-    def set_seo_tags_with_breadcrumbs
+    def set_seo_tags_with_breadcrumbs(force: false)
       return if breadcrumbs.empty?
-      return if breadcrumbs.size == 1
+      return if breadcrumbs.size == 1 && force == false
       h1 h1_from_breadcrumbs || site_title
       title [title_from_breadcrumbs, site_title].compact.join(' | ')
     end
