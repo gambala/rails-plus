@@ -19,7 +19,7 @@ module WithBreadcrumbsAndSeo
       return if breadcrumbs.empty?
       return if breadcrumbs.size == 1 && with_first == false
       h1 h1_from_breadcrumbs || site_title
-      title [title_from_breadcrumbs(with_first), site_title].compact.join(' | ')
+      title [title_from_breadcrumbs(with_first: with_first), site_title].compact.join(' | ')
     end
   end
 end
