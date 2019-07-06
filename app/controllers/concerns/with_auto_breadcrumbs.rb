@@ -5,6 +5,8 @@ module WithAutoBreadcrumbs
     def auto_breadcrumbs(resource, only: %i(index new show edit delete), prefix: [])
       only.each do |action|
         case action
+        when :create, :update, :destroy
+          next
         when :index
           # add_breadcrumb User, [:prefix, :users]
           add_breadcrumb resource, prefix + [resource.model_name.route_key]
