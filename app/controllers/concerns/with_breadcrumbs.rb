@@ -13,6 +13,11 @@ module WithBreadcrumbs
       breadcrumbs << { label: label, route: route }
     end
 
+    def remove_breadcrumb(route)
+      return if route.blank?
+      breadcrumbs.delete_if { |breadcrumb| breadcrumb[:route] == route }
+    end
+
     def breadcrumbs
       @breadcrumbs ||= []
     end
