@@ -1,12 +1,12 @@
 module DatetimeHelper
-  def smart_datetime(datetime, with_time: false)
+  def smart_datetime(datetime, without_time: false, with_time: true)
     return if datetime.blank?
     template = if datetime > Time.zone.now.midnight && datetime < Time.zone.now.end_of_day
                  '%H:%M'
                elsif datetime > Time.zone.now.beginning_of_year
-                 with_time ? '%d %b %H:%M' : '%d %b'
+                 without_time ? '%d %b' : '%d %b %H:%M'
                else
-                 with_time ? '%d %b %Y %H:%M' : '%d %b %Y'
+                 without_time ? '%d %b %Y' : '%d %b %Y %H:%M'
                end
     l datetime, format: template
   end
