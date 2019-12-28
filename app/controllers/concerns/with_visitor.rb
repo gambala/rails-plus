@@ -5,9 +5,11 @@ module WithVisitor
 
   included do
     helper_method :visitor_id
+  end
 
-    def visitor_id
-      @visitor_id ||= cookies.encrypted[:visitor_id] ||= SecureRandom.uuid
-    end
+  private
+
+  def visitor_id
+    @visitor_id ||= cookies.encrypted[:visitor_id] ||= SecureRandom.uuid
   end
 end

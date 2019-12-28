@@ -3,8 +3,8 @@
 module InheritedFromModel
   extend ActiveSupport::Concern
 
-  included do
-    def self.model_name
+  module ClassMethods
+    def model_name
       superclass.model_name
     end
   end

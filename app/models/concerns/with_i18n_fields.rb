@@ -24,39 +24,41 @@ module WithI18nFields
     delegate :i18n_record_type, to: :class
     delegate :i18n_type,        to: :class
     delegate :i18n_types,       to: :class
+  end
 
-    # Callbacks
+  private
 
-    def create_translations
-      I18nLanguage.all.pluck(:locale).each do |locale|
-        i18n_fields.each do |field|
-          I18nTranslation.where(record_type: i18n_record_type, record_id: id, field: field,
-                                locale: locale).first_or_create!
-        end
-      end
-    end
+  # Callbacks
 
-    # Virtual attributes
-
-    def translated?(locale = I18n.locale)
-      return false if i18n_fields.blank?
-      i18n_fields.each { |field| return false if public_send("i18n_#{field}", locale).blank? }
-      true
-    end
-
-    def translations=(value)
-      return if value.blank?
-
-      value.each do |locale, fields|
-        fields.each do |field, translation|
-          I18nTranslation.find_by(record_type: i18n_record_type, record_id: id, field: field,
-                                  locale: locale).update(value: translation)
-        end
+  def create_translations
+    I18nLanguage.all.pluck(:locale).each do |locale|
+      i18n_fields.each do |field|
+        I18nTranslation.where(record_type: i18n_record_type, record_id: id, field: field,
+                              locale: locale).first_or_create!
       end
     end
   end
 
-  class_methods do
+  # Virtual attributes
+
+  def translated?(locale = I18n.locale)
+    return false if i18n_fields.blank?
+    i18n_fields.each { |field| return false if public_send("i18n_#{field}", locale).blank? }
+    true
+  end
+
+  def translations=(value)
+    return if value.blank?
+
+    value.each do |locale, fields|
+      fields.each do |field, translation|
+        I18nTranslation.find_by(record_type: i18n_record_type, record_id: id, field: field,
+                                locale: locale).update(value: translation)
+      end
+    end
+  end
+
+  module ClassMethods
     def i18n_fields(*args)
       @i18n_fields = [] if @i18n_fields.blank?
 

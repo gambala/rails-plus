@@ -5,11 +5,13 @@ module WithMoneyPayments
 
   included do
     has_many :money_payments, as: :record, dependent: :destroy, inverse_of: :record
+  end
 
-    def check_payments!; end
+  private
 
-    def total
-      @total ||= money_payments.approved.sum(:total)
-    end
+  def check_payments!; end
+
+  def total
+    @total ||= money_payments.approved.sum(:total)
   end
 end
