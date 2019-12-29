@@ -26,8 +26,6 @@ module WithI18nFields
     delegate :i18n_types,       to: :class
   end
 
-  private
-
   # Callbacks
 
   def create_translations

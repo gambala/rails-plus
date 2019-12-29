@@ -8,8 +8,6 @@ module WithDeletedStatus
     scope :deleted, -> { where(deleted: true) }
   end
 
-  private
-
   def active?
     deleted == false
   end

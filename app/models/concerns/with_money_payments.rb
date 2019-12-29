@@ -7,8 +7,6 @@ module WithMoneyPayments
     has_many :money_payments, as: :record, dependent: :destroy, inverse_of: :record
   end
 
-  private
-
   def check_payments!; end
 
   def total
