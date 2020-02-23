@@ -10,7 +10,7 @@ class RichFormBuilder < ActionView::Helpers::FormBuilder
     options[:without].each { |error| errors.delete(error) } if options[:without].present?
     return unless errors.any?
     class_def = options[:class] || 'field-paragraph field-paragraph_danger'
-    @template.content_tag :div, "Также: #{errors.full_messages.join('; ')}", class: class_def
+    @template.content_tag :div, errors.full_messages.join('; '), class: class_def
   end
 
   def label(method, text = nil, options = {}, &block)
