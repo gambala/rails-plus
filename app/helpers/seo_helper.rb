@@ -68,10 +68,10 @@ module SeoHelper
      "#{pagetype}: http://ogp.me/ns/#{pagetype}#"].join(' ')
   end
 
-  def text_from_html(value)
+  def text_from_html(value, length: 150)
     return nil if value.blank?
     value = strip_tags(value)
-    value = truncate(value, length: 150, escape: false)
+    value = truncate(value, length: length, escape: false)
     value = value.gsub(/\n\n+/, '\n').gsub(/^\n|\n$/, ' ').squish
     value
   end
