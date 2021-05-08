@@ -3,7 +3,7 @@
 module WithI18nFields
   extend ActiveSupport::Concern
   include ActionView::Helpers::TextHelper
-  include I18nHelper
+  include RailsPlus::Helpers::I18nHelper
 
   included do
     has_many :i18n_translations, as: :record, dependent: :nullify
