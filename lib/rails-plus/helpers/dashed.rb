@@ -1,9 +1,5 @@
-module RailsPlus
-  module Helpers
-    module Dashed
-      def dashed(word)
-        word.tr('_', '-')
-      end
-    end
+module RailsPlus::Helpers::Dashed
+  def dashed(word)
+    word.tr('_', '-')
   end
 end

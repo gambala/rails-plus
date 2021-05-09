@@ -1,3 +1,8 @@
+module RailsPlus
+  module Helpers
+  end
+end
+
 require 'rails-plus/helpers/benchmark'
 require 'rails-plus/helpers/cloudflare'
 require 'rails-plus/helpers/custom_tags'
