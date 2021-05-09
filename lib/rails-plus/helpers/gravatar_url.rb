@@ -1,0 +1,10 @@
+module RailsPlus
+  module Helpers
+    module GravatarURL
+      def gravatar_url(email, size)
+        gravatar_id = Digest::MD5.hexdigest(email.downcase)
+        "https://gravatar.com/avatar/#{gravatar_id}.png?s=#{size}"
+      end
+    end
+  end
+end
