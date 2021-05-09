@@ -5,7 +5,17 @@ module RailsPlus::Helpers::Routes
 
     resources(*resources) do
       yield if block_given?
-      get :delete, on: :member if using_delete?(options)
+      get   :delete          , on: :member if options_have_key?(options, :delete)
+      get   :download        , on: :member if options_have_key?(options, :download)
+      get   :invoice         , on: :member if options_have_key?(options, :invoice)
+      get   :pdf             , on: :member if options_have_key?(options, :pdf)
+      put   :undelete        , on: :member if options_have_key?(options, :undelete)
+      patch :undelete        , on: :member if options_have_key?(options, :undelete)
+      put   :update_position , on: :member if options_have_key?(options, :update_position)
+      patch :update_position , on: :member if options_have_key?(options, :update_position)
+      get   :mini            , on: :collection if options_have_key?(options, :mini)
+      put   :batch           , on: :collection if options_have_key?(options, :batch)
+      patch :batch           , on: :collection if options_have_key?(options, :batch)
     end
   end
   # rubocop:enable Lint/UnusedMethodArgument
@@ -38,11 +48,11 @@ module RailsPlus::Helpers::Routes
 
   private
 
-  def using_delete?(options)
+  def options_have_key?(options, key)
     if options.key?(:only)
-      options[:only].include?(:delete) ? true : false
+      options[:only].include?(key) ? true : false
     elsif options.key?(:except)
-      options[:except].include?(:delete) ? false : true
+      options[:except].include?(key) ? false : true
     else
       true
     end
