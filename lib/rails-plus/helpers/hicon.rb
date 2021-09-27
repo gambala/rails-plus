@@ -4,6 +4,6 @@ module RailsPlus::Helpers::Hicon
     params = {}
     params[:options] = options if options.present?
     params[:variant] = options[:variant] if options.present? && options[:variant].present?
-    heroicon name, params
+    heroicon name, **params
   end
 end
