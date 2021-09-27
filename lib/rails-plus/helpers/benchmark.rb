@@ -1,5 +1,5 @@
 module RailsPlus::Helpers::Benchmark
-  def benchmark(caption = nil, &block)
-    Benchmark.benchmark(caption.to_s) { |x| x.report { yield } }
+  def benchmark(caption = '', &block)
+    Benchmark.benchmark(caption) { |x| x.report { yield } }
   end
 end
