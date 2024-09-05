@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
 # This hack allows to remove pagy gem from project
-module Pagy
-  module Backend
+unless defined?(Pagy)
+  module Pagy
+    module Backend
+    end
   end
 end
 
