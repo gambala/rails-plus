@@ -1,9 +1,14 @@
-@import rails-plus/mixins/focus
-
 *:focus,
 a:focus,
 button:focus
-  +focus
+  outline: 1px dotted
+  outline: 5px auto -webkit-focus-ring-color
+
+  [data-whatinput="initial"] &,
+  [data-whatinput="mouse"] &,
+  [data-whatinput="touch"] &
+    outline: none
+    outline-offset: 0
 
 // Suppress the focus outline on elements that cannot be accessed via keyboard.
 // This prevents an unwanted focus outline from appearing around elements that

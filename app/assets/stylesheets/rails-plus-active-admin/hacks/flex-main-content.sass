@@ -1,19 +1,17 @@
-@import rails-plus/mixins/media
-
 #active_admin_content
   padding: 6px 30px 30px
 
-  +to(768px)
+  @media (max-width: 767px)
     padding: 12px 10px
 
-  +from(768px)
+  @media (min-width: 768px)
     display: flex
     justify-content: space-between
 
   #main_content_wrapper
     float: none
 
-    +to(768px)
+    @media (max-width: 767px)
       width: calc(100vw - 20px)
 
     #main_content
@@ -23,12 +21,12 @@
     float: none
     width: 270px
 
-    +to(768px)
+    @media (max-width: 767px)
       margin-left: 0
       margin-top: 30px
       width: auto
 
   &.with_sidebar
-    +from(768px)
+    @media (min-width: 768px)
       #main_content_wrapper
         width: calc(100vw - 270px - 30px - 60px - 10px)

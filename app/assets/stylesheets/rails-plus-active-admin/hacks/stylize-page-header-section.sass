@@ -1,5 +1,3 @@
-@import rails-plus/mixins/media
-
 #title_bar
   background: none
   border: none
@@ -11,7 +9,7 @@
   #titlebar_right
     vertical-align: bottom
 
-  +to(768px)
+  @media (max-width: 767px)
     padding: 10px 10px
 
     #titlebar_left,

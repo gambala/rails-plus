@@ -1,9 +1,7 @@
-@import rails-plus/mixins/media
-
 form fieldset ol > li.has_many_container
   display: block
 
-  +to(768px)
+  @media (max-width: 767px)
     padding: 6px 0
 
   .has_many_fields
@@ -12,7 +10,7 @@ form fieldset ol > li.has_many_container
     box-shadow: none
     margin-bottom: 12px
 
-    +to(768px)
+    @media (max-width: 767px)
       ol > li
         padding: 6px 10px
 

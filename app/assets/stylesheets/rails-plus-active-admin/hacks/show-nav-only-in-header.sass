@@ -1,9 +1,7 @@
-@import rails-plus/mixins/media
-
 #header
   padding: 0 10px
 
-  +from(768px)
+  @media (min-width: 768px)
     padding: 0 30px
 
   .navigation
@@ -22,7 +20,7 @@
       margin-left: -10px
       margin-right: -10px
 
-      +to(768px)
+      @media (max-width: 767px)
         padding: 3px 4px
 
       & > li ul
