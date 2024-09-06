@@ -1,0 +1,30 @@
+#index_footer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  margin: -4px;
+}
+
+#index_footer .download_links,
+#index_footer .pagination_information,
+#index_footer .pagination {
+  margin: 4px;
+}
+
+#index_footer .download_links {
+  order: 1;
+}
+
+#index_footer .pagination_information {
+  order: 2;
+}
+
+#index_footer .pagination {
+  order: 3;
+  margin: 2px;
+  display: flex;
+}
+
+#index_footer .pagination span {
+  margin: 2px;
+}

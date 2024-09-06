@@ -1,0 +1,28 @@
+#title_bar {
+  background: none;
+  border: none;
+  box-shadow: none;
+  text-shadow: none;
+  z-index: 1;
+}
+
+#title_bar #titlebar_left,
+#title_bar #titlebar_right {
+  vertical-align: bottom;
+}
+
+@media (max-width: 767px) {
+  #title_bar {
+    padding: 10px 10px;
+  }
+
+  #title_bar #titlebar_left,
+  #title_bar #titlebar_right {
+    height: auto;
+  }
+
+  #title_bar h2 {
+    font-size: 16px;
+    line-height: 21px;
+  }
+}

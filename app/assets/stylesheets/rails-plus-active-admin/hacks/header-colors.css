@@ -1,0 +1,79 @@
+#header {
+  background: var(--site-header-background);
+  border-bottom: 1px solid var(--site-header-border-color);
+  box-shadow: none;
+}
+
+#header a,
+#header a:link {
+  color: var(--link-color);
+}
+
+#header ul.tabs > li a {
+  border-radius: 3px;
+  padding: 3px 6px;
+}
+
+@media (max-width: 767px) {
+  #header ul.tabs > li a {
+    font-size: 10px;
+    padding: 2px 4px;
+  }
+}
+
+#header ul.tabs > li ul {
+  background: #fff;
+  border: 1px solid #b7b7b7;
+  border-radius: 0 0 5px 5px;
+  box-shadow: none;
+  margin-top: 0;
+  max-width: 100%;
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  #header ul.tabs > li ul {
+    margin-top: -2px;
+  }
+}
+
+#header ul.tabs > li ul li a:hover {
+  background: #EAF8FF;
+  color: #E54B4B;
+}
+
+#header ul.tabs > li:hover > a {
+  background: #EAF8FF;
+  color: #E54B4B;
+}
+
+#header ul.tabs > li.current > a {
+  background: #EAF8FF;
+  color: #E54B4B;
+}
+
+#header ul.tabs > li.has_nested > a {
+  border: 1px solid transparent;
+  border-bottom: none;
+}
+
+#header ul.tabs > li.has_nested:hover > a {
+  background-color: #fff;
+  border-bottom: none;
+  border-color: #b7b7b7;
+  border-radius: 5px 5px 0 0;
+}
+
+#header ul.tabs > li.has_nested.current > a {
+  background-color: #EAF8FF;
+}
+
+#header ul.tabs > li.has_nested.current:hover > a {
+  background-color: #fff;
+}
+
+@media (max-width: 767px) {
+  #header ul.tabs > li {
+    margin: 2px;
+  }
+}

@@ -1,0 +1,82 @@
+.comments .active_admin_comment {
+  display: flex;
+  flex-flow: column nowrap;
+  margin-bottom: 18px;
+}
+
+.comments .active_admin_comment .active_admin_comment_meta {
+  margin-bottom: 3px;
+  width: auto;
+}
+
+@media (min-width: 768px) {
+  .comments .active_admin_comment .active_admin_comment_meta {
+    display: flex;
+    flex-flow: row wrap;
+  }
+}
+
+.comments .active_admin_comment .active_admin_comment_meta span {
+  float: none;
+  margin-right: 10px;
+  order: 1;
+}
+
+@media (min-width: 768px) {
+  .comments .active_admin_comment .active_admin_comment_meta span {
+    width: 150px;
+  }
+}
+
+.comments .active_admin_comment .active_admin_comment_meta .active_admin_comment_author {
+  float: none;
+  margin-right: 10px;
+  order: 2;
+}
+
+.comments .active_admin_comment .active_admin_comment_meta a {
+  float: none;
+  order: 3;
+}
+
+.comments .active_admin_comment .active_admin_comment_body {
+  margin-left: 0;
+}
+
+@media (min-width: 768px) {
+  .comments .active_admin_comment .active_admin_comment_body {
+    margin-left: 160px;
+  }
+}
+
+.comments .pagination_information {
+  float: none;
+  margin-bottom: 18px;
+}
+
+@media (min-width: 768px) {
+  .comments .pagination_information {
+    margin-left: 160px;
+  }
+}
+
+form.active_admin_comment fieldset.inputs {
+  border: none;
+}
+
+form.active_admin_comment textarea {
+  margin-left: 0;
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  form.active_admin_comment {
+    margin-left: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  form.active_admin_comment {
+    margin-left: 160px;
+  }
+}

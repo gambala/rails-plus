@@ -1,0 +1,5 @@
+.section > div,
+.panel > div,
+.sidebar_section > div {
+  padding: 3px 10px;
+}

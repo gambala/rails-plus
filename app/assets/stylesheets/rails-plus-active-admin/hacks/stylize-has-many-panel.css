@@ -1,0 +1,26 @@
+form fieldset ol > li.has_many_container {
+  display: block;
+}
+
+@media (max-width: 767px) {
+  form fieldset ol > li.has_many_container {
+    padding: 6px 0;
+  }
+}
+
+form fieldset ol > li.has_many_container .has_many_fields {
+  background: #efefef;
+  border: 1px solid #d3d3d3;
+  box-shadow: none;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 767px) {
+  form fieldset ol > li.has_many_container .has_many_fields ol > li {
+    padding: 6px 10px;
+  }
+
+  form fieldset ol > li.has_many_container .has_many_fields ol > li.hidden {
+    padding: 0;
+  }
+}

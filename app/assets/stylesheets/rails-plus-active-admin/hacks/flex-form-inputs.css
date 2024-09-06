@@ -1,0 +1,82 @@
+/* For each field group */
+form fieldset ol > li {
+  align-items: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+}
+
+@media (max-width: 767px) {
+  form fieldset ol > li {
+    padding: 6px 0;
+  }
+}
+
+form fieldset ol > li label {
+  width: 100%;
+}
+
+form fieldset ol > li.boolean label {
+  align-items: center;
+  display: flex;
+}
+
+@media (max-width: 767px) {
+  form fieldset ol > li.boolean label {
+    padding: 0;
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  form fieldset ol > li.boolean label {
+    padding-left: 22px;
+  }
+}
+
+form input[type="text"],
+form input[type="text"].date-time-picker-input,
+form input[type="password"],
+form input[type="email"],
+form input[type="number"],
+form input[type="url"],
+form input[type="tel"],
+form input[type="date"],
+form input[type="time"],
+form input[type="file"],
+form select,
+form textarea,
+form .cke_chrome {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  form input[type="text"],
+  form input[type="text"].date-time-picker-input,
+  form input[type="password"],
+  form input[type="email"],
+  form input[type="number"],
+  form input[type="url"],
+  form input[type="tel"],
+  form input[type="date"],
+  form input[type="time"],
+  form input[type="file"],
+  form select,
+  form textarea,
+  form .cke_chrome {
+    margin-left: 22px;
+    width: calc(80% - 22px);
+  }
+}
+
+form .select2-container {
+  min-width: 90px;
+  width: 100% !important;
+}
+
+@media (min-width: 768px) {
+  form .select2-container {
+    margin-left: 22px;
+    width: calc(80% - 22px) !important;
+  }
+}

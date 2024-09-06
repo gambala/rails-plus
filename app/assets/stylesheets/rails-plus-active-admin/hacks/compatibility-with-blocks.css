@@ -1,0 +1,7 @@
+.active_admin .panel {
+  padding: 0;
+}
+
+.active_admin tr.row {
+  display: table-row;
+}

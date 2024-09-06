@@ -1,0 +1,7 @@
+.active_admin .site-header-section {
+  border: none;
+}
+
+.active_admin .site-header-section a.logo {
+  line-height: 24px;
+}

@@ -1,0 +1,36 @@
+.table_tools {
+  display: flex;
+  margin-bottom: 0;
+  padding: 1px 35px;
+  pointer-events: none;
+  position: absolute;
+}
+
+.table_tools::after {
+  content: none;
+}
+
+.table_tools .dropdown_menu {
+  display: block;
+  float: none;
+}
+
+.table_tools .dropdown_menu .dropdown_menu_list_wrapper {
+  pointer-events: all;
+}
+
+a.table_tools_button,
+.dropdown_menu .dropdown_menu_button,
+.table_tools .dropdown_menu_button {
+  opacity: 1;
+  pointer-events: all;
+  visibility: visible;
+}
+
+a.table_tools_button.disabled,
+.dropdown_menu .dropdown_menu_button.disabled,
+.table_tools .dropdown_menu_button.disabled {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}

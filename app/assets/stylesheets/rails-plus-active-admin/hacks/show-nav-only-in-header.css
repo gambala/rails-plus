@@ -1,0 +1,39 @@
+#header {
+  padding: 0 10px;
+}
+
+@media (min-width: 768px) {
+  #header {
+    padding: 0 30px;
+  }
+}
+
+#header .navigation {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}
+
+#header .navigation #utility_nav,
+#header .navigation #site_title {
+  display: none;
+}
+
+#header .navigation #tabs {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+@media (max-width: 767px) {
+  #header .navigation #tabs {
+    padding: 3px 4px;
+  }
+}
+
+#header .navigation #tabs > li ul {
+  left: auto;
+  right: 0;
+}

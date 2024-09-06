@@ -1,0 +1,4 @@
+.panel > h3:empty,
+.section > h3:empty {
+  display: none;
+}

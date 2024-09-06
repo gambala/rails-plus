@@ -1,0 +1,106 @@
+form.filter_form .filter_form_field {
+  display: flex;
+  align-items: center;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  margin: 0 -5px 12px;
+}
+
+form.filter_form .filter_form_field .label {
+  margin: 0 5px;
+}
+
+@media (max-width: 529px) {
+  form.filter_form .filter_form_field .label {
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  form.filter_form .filter_form_field .label {
+    width: 100%;
+  }
+}
+
+form.filter_form .filter_form_field.select_and_search select {
+  margin: 3px 5px;
+  width: 150px;
+}
+
+@media (max-width: 529px) {
+  form.filter_form .filter_form_field.select_and_search select {
+    width: 40%;
+  }
+}
+
+@media (min-width: 768px) {
+  form.filter_form .filter_form_field.select_and_search select {
+    width: 40%;
+  }
+}
+
+form.filter_form .filter_form_field.select_and_search .select2-container {
+  margin: 3px 5px;
+  width: 150px !important;
+}
+
+@media (max-width: 529px) {
+  form.filter_form .filter_form_field.select_and_search .select2-container {
+    width: 40% !important;
+  }
+}
+
+@media (min-width: 768px) {
+  form.filter_form .filter_form_field.select_and_search .select2-container {
+    width: 40% !important;
+  }
+}
+
+form.filter_form .filter_form_field.filter_select .select2-container {
+  margin: 3px 5px;
+  width: 150px !important;
+}
+
+@media (max-width: 529px) {
+  form.filter_form .filter_form_field.filter_select .select2-container {
+    width: 100% !important;
+  }
+}
+
+@media (min-width: 768px) {
+  form.filter_form .filter_form_field.filter_select .select2-container {
+    width: 100% !important;
+  }
+}
+
+form.filter_form .filter_form_field.select_and_search input[type="text"],
+form.filter_form .filter_form_field.filter_date_range input[type="text"],
+form.filter_form .filter_form_field.filter_boolean select,
+form.filter_form .filter_form_field.filter_boolean .select2-container {
+  flex: 1 0 auto;
+  margin: 3px 5px;
+  width: 200px;
+}
+
+@media (max-width: 529px) {
+  form.filter_form .filter_form_field.select_and_search input[type="text"],
+  form.filter_form .filter_form_field.filter_date_range input[type="text"],
+  form.filter_form .filter_form_field.filter_boolean select,
+  form.filter_form .filter_form_field.filter_boolean .select2-container {
+    width: 40%;
+  }
+}
+
+@media (min-width: 768px) {
+  form.filter_form .filter_form_field.select_and_search input[type="text"],
+  form.filter_form .filter_form_field.filter_date_range input[type="text"],
+  form.filter_form .filter_form_field.filter_boolean select,
+  form.filter_form .filter_form_field.filter_boolean .select2-container {
+    width: 40%;
+  }
+}
+
+form .buttons,
+form .actions {
+  margin-top: 0;
+}
