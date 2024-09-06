@@ -33,7 +33,6 @@
     "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {
-    "node-sass": "~3.7.0",
     "mincer": "~1.4.0",
     "ejs": "~2.5.5"
   }
