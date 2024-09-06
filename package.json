@@ -1,10 +1,10 @@
 {
   "name": "rails-plus",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Cozy helpers for Ruby on Rails",
   "main": "es6/index.js",
-  "style": "app/assets/stylesheets/rails-plus.css",
-  "sass": "app/assets/stylesheets/rails-plus.css",
+  "style": "dist/rails-plus.css",
+  "sass": "dist/rails-plus.css",
   "repository": {
     "type": "git",
     "url": "git://github.com/gambala/rails-plus"
