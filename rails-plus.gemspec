@@ -11,6 +11,5 @@ Gem::Specification.new do |s|
   s.homepage = 'https://github.com/gambala/rails-plus'
   s.license  = 'MIT'
   s.files    = `git ls-files`.split("\n")
-  s.add_runtime_dependency 'sass-rails', '>= 6.0'
   s.add_runtime_dependency 'autoprefixer-rails', '>= 5.2.1'
 end
